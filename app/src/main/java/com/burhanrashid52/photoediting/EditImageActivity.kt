@@ -118,6 +118,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
             .build() // build photo editor sdk
 
         mPhotoEditor.setOnPhotoEditorListener(this)
+        mPhotoEditor.setBrushEraserSize(50f)
 
         //Set Image Dynamically
         mPhotoEditorView.source.setImageResource(R.drawable.paris_tower)
@@ -399,8 +400,10 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         when (toolType) {
             ToolType.SHAPE -> {
                 mPhotoEditor.setBrushDrawingMode(true)
+
                 mShapeBuilder = ShapeBuilder()
                 mPhotoEditor.setShape(mShapeBuilder)
+
                 mTxtCurrentTool.setText(R.string.label_shape)
                 showBottomSheetDialogFragment(mShapeBSFragment)
             }

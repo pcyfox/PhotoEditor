@@ -163,25 +163,25 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
     }
 
     override var brushSize: Float
-        get() = drawingView?.currentShapeBuilder?.shapeSize ?: 0f
+        get() = drawingView.currentShapeBuilder.shapeSize ?: 0f
         set(size) {
-            drawingView?.currentShapeBuilder?.withShapeSize(size)
+            drawingView.currentShapeBuilder.withShapeSize(size)
         }
     override var brushColor: Int
-        get() = drawingView?.currentShapeBuilder?.shapeColor ?: 0
+        get() = drawingView.currentShapeBuilder.shapeColor ?: 0
         set(color) {
-            drawingView?.currentShapeBuilder?.withShapeColor(color)
+            drawingView.currentShapeBuilder.withShapeColor(color)
         }
 
     override fun setBrushEraserSize(brushEraserSize: Float) {
-        drawingView?.eraserSize = brushEraserSize
+        drawingView.eraserSize = brushEraserSize
     }
 
     override val eraserSize: Float
-        get() = drawingView?.eraserSize ?: 0f
+        get() = drawingView.eraserSize ?: 0f
 
     override fun brushEraser() {
-        drawingView?.brushEraser()
+        drawingView.brushEraser()
     }
 
     override fun undo(): Boolean {
@@ -287,7 +287,7 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
                 }
             )
         )
-        imageView?.setOnTouchListener { _, event ->
+        imageView.setOnTouchListener { _, event ->
             mOnPhotoEditorListener?.onTouchSourceImage(event)
             mDetector.onTouchEvent(event)
         }
